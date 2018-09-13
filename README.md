@@ -2,8 +2,8 @@
 
 Install all PHP version (form 5.6 to 7.2) on Ubuntu
 
-$ sudo chmod +x install.sh
-$ ./install.sh
+    $ sudo chmod +x install.sh
+    $ ./install.sh
 
 You can switch to another version
 
