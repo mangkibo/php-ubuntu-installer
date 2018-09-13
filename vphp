@@ -2,6 +2,14 @@
 
 VER=$1
 
+###############################################
+##                                           ##
+##   Author : mangkibo                       ##
+##   Email  : mangkibo.boo@gmail.com         ##
+##   Date   : 23 January 2018                ##
+##                                           ##
+###############################################
+
 echo -e "\e[93m"
 if [ $VER ]; then
   if [ $VER == '5.6' ]; then
@@ -39,7 +47,7 @@ if [ $VER ]; then
   fi
 else
   echo -e "Usage : \n"
-  echo phpversion
+  echo vphp
   echo -e "-- check\t-->\tCheck PHP current version"
   echo -e "-- 7.2\t\t-->\tConvert to PHP 7.2"
   echo -e "-- 7.1\t\t-->\tConvert to PHP 7.1"
