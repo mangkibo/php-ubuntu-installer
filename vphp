@@ -1,0 +1,49 @@
+#!/bin/bash
+
+VER=$1
+
+echo -e "\e[93m"
+if [ $VER ]; then
+  if [ $VER == '5.6' ]; then
+    echo Converting to PHP 5.6
+    echo configuring Apache
+    sudo a2dismod php7.0 ; sudo a2dismod php7.1 ;  sudo a2dismod php7.2 ; sudo a2enmod php5.6 ; sudo service apache2 restart ;
+    echo configuring CLI
+    sudo update-alternatives --set php /usr/bin/php5.6
+    echo Done!
+  elif [ $VER == '7.0' ]; then
+    echo Converting to PHP 7.0
+    echo configuring Apache
+    sudo a2dismod php5.6 ; sudo a2dismod php7.1 ;  sudo a2dismod php7.2 ; sudo a2enmod php7.0 ; sudo service apache2 restart ;
+    echo configuring CLI
+    sudo update-alternatives --set php /usr/bin/php7.0
+    echo Done!
+  elif [ $VER == '7.1' ]; then
+    echo Converting to PHP 7.1
+    echo configuring Apache
+    sudo a2dismod php5.6 ; sudo a2dismod php7.0 ;  sudo a2dismod php7.2 ; sudo a2enmod php7.1 ; sudo service apache2 restart ;
+    echo configuring CLI
+    sudo update-alternatives --set php /usr/bin/php7.1
+    echo Done!
+  elif [ $VER == '7.2' ]; then
+    echo Converting to PHP 7.1
+    echo configuring Apache
+    sudo a2dismod php5.6 ; sudo a2dismod php7.0 ;  sudo a2dismod php7.1 ; sudo a2enmod php7.2 ; sudo service apache2 restart ;
+    echo configuring CLI
+    sudo update-alternatives --set php /usr/bin/php7.2
+    echo Done!
+  elif [ $VER == 'check' ]; then
+          php -v
+  else
+          echo Command undefine
+  fi
+else
+  echo -e "Usage : \n"
+  echo phpversion
+  echo -e "-- check\t-->\tCheck PHP current version"
+  echo -e "-- 7.2\t\t-->\tConvert to PHP 7.2"
+  echo -e "-- 7.1\t\t-->\tConvert to PHP 7.1"
+  echo -e "-- 7.0\t\t-->\tConvert to PHP 7.0"
+  echo -e "-- 5.6\t\t-->\tConvert to PHP 5.6"
+fi
+echo -e "\e[39m"
