@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+    echo Error: must run as root
+    exit
+fi
+
 echo get repository
 add-apt-repository ppa:ondrej/php
 apt update
