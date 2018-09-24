@@ -11,7 +11,6 @@
 VER=$1
 
 echo -e "\e[93m"
-
 if [ $VER ]; then
   if [ "$EUID" -ne 0 ]; then
     echo Error: must run as root
@@ -21,28 +20,28 @@ if [ $VER ]; then
   if [ $VER == '5.6' ]; then
     echo Converting to PHP 5.6
     echo configuring Apache
-    a2dismod php7.0 ; sudo a2dismod php7.1 ;  sudo a2dismod php7.2 ; sudo a2enmod php5.6 ; sudo service apache2 restart ;
+    a2dismod php7.0 ; a2dismod php7.1 ; a2dismod php7.2 ; a2enmod php5.6 ; service apache2 restart ;
     echo configuring CLI
     update-alternatives --set php /usr/bin/php5.6
     echo Done!
   elif [ $VER == '7.0' ]; then
     echo Converting to PHP 7.0
     echo configuring Apache
-    a2dismod php5.6 ; sudo a2dismod php7.1 ;  sudo a2dismod php7.2 ; sudo a2enmod php7.0 ; sudo service apache2 restart ;
+    a2dismod php5.6 ; a2dismod php7.1 ; a2dismod php7.2 ; a2enmod php7.0 ; service apache2 restart ;
     echo configuring CLI
     update-alternatives --set php /usr/bin/php7.0
     echo Done!
   elif [ $VER == '7.1' ]; then
     echo Converting to PHP 7.1
     echo configuring Apache
-    a2dismod php5.6 ; sudo a2dismod php7.0 ;  sudo a2dismod php7.2 ; sudo a2enmod php7.1 ; sudo service apache2 restart ;
+    a2dismod php5.6 ; a2dismod php7.0 ; a2dismod php7.2 ; a2enmod php7.1 ; service apache2 restart ;
     echo configuring CLI
     update-alternatives --set php /usr/bin/php7.1
     echo Done!
   elif [ $VER == '7.2' ]; then
     echo Converting to PHP 7.1
     echo configuring Apache
-    a2dismod php5.6 ; sudo a2dismod php7.0 ;  sudo a2dismod php7.1 ; sudo a2enmod php7.2 ; sudo service apache2 restart ;
+    a2dismod php5.6 ; a2dismod php7.0 ;  a2dismod php7.1 ; a2enmod php7.2 ; service apache2 restart ;
     echo configuring CLI
     update-alternatives --set php /usr/bin/php7.2
     echo Done!
