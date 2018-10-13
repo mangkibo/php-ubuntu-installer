@@ -5,6 +5,9 @@ if [ "$EUID" -ne 0 ]; then
     exit
 fi
 
+echo install zip library
+apt install -y zip
+
 echo get repository
 add-apt-repository ppa:ondrej/php
 apt update
